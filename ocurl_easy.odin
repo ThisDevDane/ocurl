@@ -12,12 +12,11 @@
  *  
  */
 
-foreign import libcurl "/external/curl.lib";
-export "ocurl_option.odin";
-export "ocurl_info.odin";
-export "ocurl_code.odin";
+package ocurl
 
-CURL :: struct #ordered {};
+foreign import libcurl "/external/curl.lib";
+
+CURL :: struct {};
 
 foreign libcurl {
     @(link_name = "curl_easy_init")
@@ -25,11 +24,11 @@ foreign libcurl {
     @(link_name = "curl_easy_cleanup")
     cleanup  :: proc(curl : ^CURL)                                                         ---;
     @(link_name = "curl_easy_setopt")
-    setopt   :: proc(curl : ^CURL, option : CurlOption, #c_vararg params : ...any)           ---;
+    setopt   :: proc(curl : ^CURL, option : CurlOption, #c_vararg params : ..any)           ---;
     @(link_name = "curl_easy_perform")
     perform  :: proc(curl : ^CURL) -> CurlCode                                             ---;
     @(link_name = "curl_easy_getinfo")
-    get_info :: proc(curl : ^CURL, info : CurlInfo, #c_vararg params : ...any) -> CurlCode  ---;
+    get_info :: proc(curl : ^CURL, info : CurlInfo, #c_vararg params : ..any) -> CurlCode  ---;
 
     @(link_name = "curl_easy_duphandle")
     duplicate_handle :: proc(curl : ^CURL) -> ^CURL                                              ---;

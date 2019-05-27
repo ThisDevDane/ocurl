@@ -12,6 +12,8 @@
  *  
  */
 
+package ocurl
+
 CURLOPTTYPE_LONG          :: 0;
 CURLOPTTYPE_OBJECTPOINT   :: 10000;
 CURLOPTTYPE_STRINGPOINT   :: 10000;
