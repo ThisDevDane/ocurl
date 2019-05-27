@@ -12,6 +12,8 @@
  *  
  */
 
+package ocurl
+
 CURLINFO_STRING   :: 0x100000;
 CURLINFO_LONG     :: 0x200000;
 CURLINFO_DOUBLE   :: 0x300000;

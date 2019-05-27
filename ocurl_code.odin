@@ -12,6 +12,8 @@
  *  
  */
 
+package ocurl
+
 CurlCode :: enum i32 {
     Ok = 0,
     UnsupportedProtocol,     /* 1 */
